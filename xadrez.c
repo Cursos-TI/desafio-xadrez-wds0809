@@ -1,51 +1,57 @@
 #include <stdio.h>
-
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+// Definição de procedimento para imprimir uma mensagem
+void moverTorre(int casas) {
+    if (casas > 0) {
+        printf("Direita\n"); // Imprime a direção do movimento
+        moverTorre(casas - 1);
+    }
+}
+// Definição de procedimento para imprimir uma mensagem
+void moverBispo(int casas) {
+    if (casas > 0) {
+        printf("Cima, Direita\n"); // Imprime a direção do movimento
+        moverBispo(casas - 1);
+    }
+}
+// Definição de procedimento para imprimir uma mensagem
+void moverRainha(int casas) {
+    if (casas > 0) {
+        printf("Esquerda\n"); // Imprime a direção do movimento
+        moverRainha(casas - 1);
+    }
+}
+// Definição de procedimento para imprimir uma mensagem
+void moverCavalo(int casas) {
+    if (casas > 0) {
+        printf("Cima\n"); // Imprime a direção do movimento
+        moverCavalo(casas - 1);
+    }
+}
+// Definição de procedimento para imprimir uma mensagem
+void moverCavalo2(int casas) {
+    if (casas > 0) {
+        printf("Direita\n"); // Imprime a direção do movimento
+        moverCavalo2(casas - 1);
+    }
+}
 
 int main() {
     // MOVIMENTE A TORRE 5 CASAS A DIREITA
     printf("=== TORRE ===\n"); // Imprimir o nome da peça
-    for (int i = 0; i < 5; i++) {
-        printf("Direita\n"); // Imprime a direção do movimento
-    }
-
+    moverTorre(5); // Chamada do procedimento
+    
     // MOVIMENTO DO BISPO 5 CASAS NA DIAGONAL PARA CIMA E Á DIREITA
-    int i = 1;
     printf("\n=== BISPO ===\n"); // Imprimir o nome da peça
-    while (i <= 5){
-        printf("Cima, Direita\n"); // Imprime a direção do movimento
-        i++;
-    }
+    moverBispo(5); // Chamada do procedimento
 
     // MOVIMENTO DA RAINHA 8 CASAS PARA Á ESQUERDA
-
-    i = 1;
     printf("\n=== RAINHA ===\n"); // Imprimir o nome da peça
-    do{
-       printf("Esquerda\n", i); // Imprime a direção do movimento
-       i++;
-    } while (i <= 8);
+    moverRainha(8); // Chamada do procedimento
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    
-    int movComp = 1; // flag para controle do movimento do L
+    // MOVIMENTO CAVALO L
     printf("\n=== CAVALO ===\n"); // Imprimir o nome da peça
-    while (movComp--)
-        {
-            for (int j = 0; j < 2; j++) {
-                printf("Baixo\n"); // Imprime "Cima" duas vezes
-            }
-            printf("Esquerda\n"); // Imprime "Direita" uma vez 
-        }
-
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
-
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+    moverCavalo(2); // Chamada do procedimento
+    moverCavalo2(1); // Chamada do procedimento
 
     return 0;
 }
